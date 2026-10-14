@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ресторан</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&subset=cyrillic,cyrillic-ext&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- ===== SVG-иконки (спрайт) ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="0 0 50 32"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M15 2l13 13-13 13L2 15z"/><path d="M30 2l13 13-13 13-13-13z"/></g></symbol>
+  <symbol id="cloche" viewBox="0 0 64 56"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 44a22 22 0 0 1 44 0z"/><path d="M4 49h56"/><circle cx="32" cy="17" r="3"/><path d="M42 12c-3-3 3-5 0-9M50 14c-3-3 3-5 0-9"/></g></symbol>
+  <symbol id="cart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h3l3 12h11l2-8H6"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></g></symbol>
+  <symbol id="phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M5 3h4l2 5-3 2a11 11 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></symbol>
+</svg>
+
+<!-- ===== HEADER (не фиксированный, только в начале страницы) ===== -->
+<header class="header">
+  <div class="container header__in">
+    <a class="logo" href="#home" aria-label="Logo"><svg width="46" height="30"><use href="#logo"/></svg></a>
+    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="nav" id="nav">
+      <ul class="nav__list">
+        <li><a href="#home" data-i18n="nav_home"></a></li>
+        <li><a href="#menu" data-i18n="nav_menu"></a></li>
+        <li><a href="#about" data-i18n="nav_about"></a></li>
+        <li><a href="#booking" data-i18n="nav_book"></a></li>
+      </ul>
+      <a class="cart" href="#menu" aria-label="Cart"><svg width="14" height="14"><use href="#cart"/></svg></a>
+      <a class="phone" href="tel:+9998887654">
+        <b><svg width="13" height="13"><use href="#phone"/></svg> +999-888-76-54</b>
+        <small data-i18n="phone_note"></small>
+      </a>
+      <a class="btn" href="#booking" data-i18n="book"></a>
+      <div class="lang">
+        <button data-lang="ru">RU</button><button data-lang="kk">KZ</button><button data-lang="en">EN</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- ===== 1. HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero__bg"><img src="images/hero bg.png" alt=""></div>
+    <div class="hero__text">
+      <h2 data-i18n="hero_hello"></h2>
+      <h1 data-i18n="hero_title"></h1>
+      <p class="tagline"><i></i><span data-i18n="hero_tag"></span><i></i></p>
+      <a class="btn" href="#menu" data-i18n="hero_btn"></a>
+    </div>
+  </section>
+
+  <!-- ===== 2. ПРЕИМУЩЕСТВА ===== -->
+  <section class="features">
+    <div class="container features__grid">
+      <article class="card reveal"><svg class="ico"><use href="#cloche"/></svg><h3 data-i18n="f1_t"></h3><p data-i18n="f1_p"></p></article>
+      <article class="card reveal" style="--d:.15s"><svg class="ico"><use href="#cloche"/></svg><h3 data-i18n="f2_t"></h3><p data-i18n="f2_p"></p></article>
+      <article class="card reveal" style="--d:.3s"><svg class="ico"><use href="#cloche"/></svg><h3 data-i18n="f3_t"></h3><p data-i18n="f3_p"></p></article>
+    </div>
+  </section>
+
+  <!-- ===== 3. НАША ИСТОРИЯ ===== -->
+  <section class="section" id="about">
+    <div class="container story">
+      <div class="story__text reveal">
+        <h2 class="title" data-i18n="story_t"></h2>
+        <p data-i18n="story_p"></p>
+        <div class="stats">
+          <div><b data-count="93">0</b><span data-i18n="stat1"></span></div>
+          <div><b data-count="206">0</b><span data-i18n="stat2"></span></div>
+          <div><b data-count="71">0</b><span data-i18n="stat3"></span></div>
+        </div>
+      </div>
+      <div class="collage reveal" style="--d:.2s">
+        <div class="ph c2"><img src="images/1.jpg" alt=""></div>
+        <div class="ph c1"><img src="images/2.jpg" alt=""></div>
+        <div class="ph c3"><img src="images/3.jpg" alt=""></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. ПРОМО-БАННЕР / БРОНЬ ===== -->
+  <section class="promo" id="booking">
+    <div class="ph promo__bg"></div>
+    <div class="container promo__in reveal">
+      <div><h2 data-i18n="promo_t"></h2><p data-i18n="promo_p"></p></div>
+      <a class="btn" href="tel:+9998887654" data-i18n="book"></a>
+    </div>
+  </section>
+
+  <!-- ===== 5. НАШИ БЛЮДА ===== -->
+  <section class="section">
+    <div class="container">
+      <h2 class="title reveal" data-i18n="dishes_t"></h2>
+      <div class="dishes reveal">
+        <div class="ph dishes__main"><img src="images/4.png" alt=""></div>
+        <div class="dishes__list">
+          <a class="dish" href="#menu"><div class="ph"><img src="images/5.png" alt=""></div><span data-i18n="dish"></span><i class="leader"></i><b>220 ₽</b></a>
+          <a class="dish" href="#menu"><div class="ph"><img src="images/5.png" alt=""></div><span data-i18n="dish"></span><i class="leader"></i><b>220 ₽</b></a>
+          <a class="dish" href="#menu"><div class="ph"><img src="images/5.png" alt=""></div><span data-i18n="dish"></span><i class="leader"></i><b>220 ₽</b></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 6. НАШЕ МЕНЮ ===== -->
+  <section class="menu" id="menu">
+    <div class="ph menu__bg"><img src="images/menu bg.png" alt=""></div>
+    <div class="container">
+      <h2 class="title reveal" data-i18n="menu_t"></h2>
+      <div class="menu__grid">
+        <article class="mcard reveal"><em class="tag" data-i18n="rec"></em>
+          <div class="mcard__pic"><div class="ph round"><img src="images/6.png" alt=""></div><span class="price">420</span></div>
+          <h3 data-i18n="burger"></h3><p data-i18n="burger_d"></p><a class="btn" href="#" data-i18n="order"></a></article>
+        <article class="mcard reveal" style="--d:.15s">
+          <div class="mcard__pic"><div class="ph round"><img src="images/6.png" alt=""></div><span class="price">420</span></div>
+          <h3 data-i18n="burger"></h3><p data-i18n="burger_d"></p><a class="btn" href="#" data-i18n="order"></a></article>
+        <article class="mcard reveal" style="--d:.3s">
+          <div class="mcard__pic"><div class="ph round"><img src="images/6.png" alt=""></div><span class="price">420</span></div>
+          <h3 data-i18n="burger"></h3><p data-i18n="burger_d"></p><a class="btn" href="#" data-i18n="order"></a></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 7. ОТЗЫВЫ (горизонтальная прокрутка) ===== -->
+  <section class="reviews">
+    <div class="reviews__carousel">
+      <button class="review-arrow review-arrow--prev" type="button" aria-label="Предыдущий отзыв">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <div class="reviews__track" id="reviews">
+        <figure class="review"><blockquote data-i18n="r1"></blockquote><div class="ph"><img src="images/7.png" alt=""></div><b data-i18n="visitor"></b><span data-i18n="r1n"></span></figure>
+        <figure class="review"><blockquote data-i18n="r2"></blockquote><div class="ph"><img src="images/7.png" alt=""></div><b data-i18n="visitor"></b><span data-i18n="r2n"></span></figure>
+        <figure class="review"><blockquote data-i18n="r3"></blockquote><div class="ph"><img src="images/7.png" alt=""></div><b data-i18n="visitor"></b><span data-i18n="r3n"></span></figure>
+      </div>
+      <button class="review-arrow review-arrow--next" type="button" aria-label="Следующий отзыв">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+    </div>
+    <div class="dots" id="dots"><button aria-label="1"></button><button aria-label="2"></button><button aria-label="3"></button></div>
+  </section>
+
+  <!-- ===== 8. ГАЛЕРЕЯ ===== -->
+  <section class="section gallery-section">
+    <div class="container">
+      <h2 class="title reveal" data-i18n="gal_t"></h2>
+      <div class="gallery reveal">
+        <div class="ph wide"><img src="images/8.png" alt=""></div>
+        <div class="ph"><img src="images/10.png" alt=""></div>
+        <div class="ph"><img src="images/9.png" alt=""></div>
+        <div class="ph"><img src="images/10.png" alt=""></div>
+        <div class="ph"><img src="images/9.png" alt=""></div>
+        <div class="ph wide"><img src="images/8.png" alt=""></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 9. ПОВАРА ===== -->
+  <section class="section chefs-section">
+    <div class="container">
+      <h2 class="title reveal" data-i18n="chefs_t"></h2>
+      <div class="chefs">
+        <div class="ph chef reveal"><img src="images/11.png" alt=""></div>
+        <div class="ph chef reveal" style="--d:.15s"><img src="images/12.png" alt=""></div>
+        <div class="ph chef reveal" style="--d:.3s"><img src="images/13.png" alt=""></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="ph footer__bg"><img src="images/footer bg.png" alt=""></div>
+  <div class="footer__in reveal">
+    <svg width="46" height="30" class="accent"><use href="#logo"/></svg>
+    <h3 data-i18n="hero_title"></h3>
+    <a href="tel:+9998887654">+999-888-76-54</a>
+    <p data-i18n="hours"></p>
+  </div>
+</footer>
+
+<!-- Кнопка «наверх» -->
+<button class="to-top" aria-label="Up"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20V5M5 11l7-7 7 7"/></svg></button>
+
+</body>
+</html>
